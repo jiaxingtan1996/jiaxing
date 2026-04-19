@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft && data.category === 'machine-learning'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Machine Learning" description="Machine learning posts" currentPath="/machine-learning/">
+  <h2 class="section-title">Machine Learning</h2>
+  <div class="post-list">
+    {posts.map((post) => (
+      <PostCard
+        href={`/posts/${post.id}/`}
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        category={post.data.category}
+      />
+    ))}
+  </div>
+</BaseLayout>

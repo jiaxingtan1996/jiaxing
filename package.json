@@ -1,0 +1,19 @@
+{
+  "name": "jiaxing-blog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "new:ml": "bash ./scripts/new-post.sh machine-learning",
+    "new:ref": "bash ./scripts/new-post.sh references"
+  },
+  "dependencies": {
+    "astro": "latest",
+    "@astrojs/mdx": "latest",
+    "@astrojs/sitemap": "latest"
+  }
+}

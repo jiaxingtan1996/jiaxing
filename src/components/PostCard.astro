@@ -1,0 +1,22 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  category: 'machine-learning' | 'references';
+}
+
+const { href, title, description, pubDate, category } = Astro.props;
+const date = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit'
+}).format(pubDate);
+---
+<div class="post-card">
+  <span class="category-pill">{category}</span>
+  <h2><a href={href}>{title}</a></h2>
+  <div class="meta">{date}</div>
+  <p>{description}</p>
+</div>

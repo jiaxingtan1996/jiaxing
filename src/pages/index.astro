@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Jiaxing Tan" description="Machine learning and references blog" currentPath="/">
+  <section>
+    <p>
+      A simple blog for long-form notes, experiments, tutorials, and curated references.
+    </p>
+  </section>
+
+  <h2 class="section-title">Recent writings</h2>
+  <div class="post-list">
+    {posts.map((post) => (
+      <PostCard
+        href={`/posts/${post.id}/`}
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        category={post.data.category}
+      />
+    ))}
+  </div>
+</BaseLayout>
