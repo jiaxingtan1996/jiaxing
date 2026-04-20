@@ -29,16 +29,17 @@ const isActive = (path: string) => currentPath === path;
         <a href="/" style="color: inherit; text-decoration: none;">
           <h1 class="site-title">Jiaxing Tan</h1>
         </a>
-        <p class="site-subtitle">machine learning · references · notes</p>
+        <p class="site-subtitle">cryo-EM · machine learning · references · notes</p>
         <nav class="nav" aria-label="Primary">
           <a href="/" class={isActive('/') ? 'active' : ''}>Home</a>
+          <a href="/cryo-EM/" class={isActive('/cryo-EM/') ? 'active' : ''}>Cryo-EM</a>
           <a href="/machine-learning/" class={isActive('/machine-learning/') ? 'active' : ''}>Machine Learning</a>
           <a href="/references/" class={isActive('/references/') ? 'active' : ''}>References</a>
         </nav>
       </header>
       <slot />
       <footer class="footer">
-        Built with Astro + Markdown/MDX.
+        Jiaxing Tan's blog
       </footer>
     </main>
   </body>

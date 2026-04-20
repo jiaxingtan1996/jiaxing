@@ -8,7 +8,7 @@ const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    category: z.enum(['machine-learning', 'references']),
+    category: z.enum(['cryo-EM', 'machine-learning', 'references']),
     draft: z.boolean().default(false),
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
