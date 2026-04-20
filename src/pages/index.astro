@@ -13,7 +13,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft))
     </p>
   </section>
 
-  <h2 class="section-title">Recent writings</h2>
+  <h2 class="section-title">Recent post</h2>
   <div class="post-list">
     {posts.map((post) => (
       <PostCard
